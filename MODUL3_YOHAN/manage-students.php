@@ -5,8 +5,8 @@ include('includes/dbconnection.php'); // Pastikan koneksi menggunakan mysqli
 
 
 //Buatkan logika untuk menghapus data siswa dari tabel tb_student berdasarkan id yang diterima dari parameter URL 'delid'
-if(isset($_GET['id'])){
-    $id = intval($_GET['id']);
+if(isset($_GET['delid'])){
+    $id = intval($_GET['delid']);
     $query = "DELETE FROM tb_student WHERE id = '$id'";
     $result = mysqli_query($conn, $query);
 }
@@ -106,7 +106,7 @@ if(isset($_GET['id'])){
                                                             <?= $student['angkatan'] ?>
                                                         </td>
                                                         <td>
-                                                            <a href=""><i class="icon-eye"></i></a>
+                                                            <a href="edit-students.php?delid=<?php echo $row['id']; ?>"><i class="icon-eye"></i></a>
                                                             ||
                                                             <a href="manage-students.php?delid=<?php echo $row['id']; ?>" onclick="return confirm('Do you really want to delete?');"><i class="icon-trash"></i></a>
                                                         </td>

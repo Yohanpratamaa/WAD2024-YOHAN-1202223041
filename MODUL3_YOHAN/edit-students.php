@@ -12,7 +12,7 @@ if(isset($_GET['id'])){
     
 
     // bikin variabel $student yang menyimpan hasil query
-    $student = $result;
+    $student = mysqli_fetch_assoc($result);
 }
 if (isset($_POST['submit'])) {
     editStudent($id);
