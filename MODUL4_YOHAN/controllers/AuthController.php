@@ -60,7 +60,7 @@ class AuthController
                         }
                         //      - Redirect ke halaman dashboard menggunakan header('Location: index.php?controller=dashboard&action=index')
                         //      - Jangan lupa exit setelah redirect
-                        header("Location: home.php");
+                        header("Location: index.php?controller=dashboard&action=index");
                         exit;   
                     
                 //    - Jika verifikasi password salah, set session message "Login Gagal NIM atau Password Salah"
@@ -132,7 +132,7 @@ class AuthController
         //      - Return nim
         //    - Return false jika kode jurusan tidak valid
             if($kode_jurusan != 0){
-                $nim = str_pad(14,24,01);
+                $nim = $kode_jurusan . $tahunmasuk . str_pad($row['id'], 2, '0', STR_PAD_LEFT);
                 return $nim;
             } 
             // 6. Return false jika data tidak ditemukan
